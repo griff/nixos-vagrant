@@ -1,0 +1,45 @@
+{
+  "variables": {
+    "iso_checksum": null
+  },
+  "builders": [
+    {
+      "vm_name": "nixos64",
+      "type": "virtualbox-iso",
+      "iso_url": "https://nixos.org/releases/nixos/latest-iso-minimal-x86_64-linux",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "sha256",
+      "guest_os_type": "Linux_64",
+      "boot_command": [
+        "<enter>", "<wait10>","<wait5>",
+        "echo \"- - L *\" > /root/sda.layout", "<enter>",
+        "sfdisk -X gpt /dev/sda < /root/sda.layout", "<enter>",
+        "sfdisk -Y dos /dev/sda < /root/sda.layout", "<enter>",
+        "mkfs.ext4 -L nixos /dev/sda1", "<enter>",
+        "mount /dev/disk/by-label/nixos /mnt", "<enter>",
+        "mkdir -p /mnt/etc/nixos", "<enter>",
+        "nixos-generate-config --root /mnt", "<enter>",
+        "curl -o /mnt/etc/nixos/configuration.nix http://{{ .HTTPIP }}:{{ .HTTPPort }}/configuration.nix && ",
+        "nixos-install && ",
+        "reboot", "<enter>"
+      ],
+      "boot_wait": "5s",
+      "disk_size": 40000,
+      "http_directory": ".",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "shutdown_command": "sudo -S shutdown -P now",
+      "vboxmanage": [
+        ["modifyvm", "{{.Name}}", "--memory", "1024"],
+        ["modifyvm", "{{.Name}}", "--cpus", "2"]
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "vagrantfile_template": "Vagrantfile.tpl",
+      "output": "{{.Provider}}/nixos64.box"
+    }
+  ]
+}
