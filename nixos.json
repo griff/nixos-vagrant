@@ -1,6 +1,7 @@
 {
   "variables": {
-    "iso_checksum": "3a250ff98773941bd44b4e84931882321b0dcbe3b4c8819590767dd7020a094d"
+    "iso_checksum": "3a250ff98773941bd44b4e84931882321b0dcbe3b4c8819590767dd7020a094d",
+    "atlas_token": "{{env `ATLAS_TOKEN`}}"
   },
   "builders": [
     {
@@ -40,6 +41,16 @@
       "type": "vagrant",
       "vagrantfile_template": "Vagrantfile.tpl",
       "output": "{{.Provider}}/nixos64.box"
+    },
+    {
+      "type": "atlas",
+      "token": "{{user `atlas_token`}}",
+      "artifact": "griff/nixos64",
+      "artifact_type": "vagrant.box",
+      "metadata": {
+        "provider": "virtualbox",
+        "created_at": "{{timestamp}}"
+      }
     }
   ]
 }
