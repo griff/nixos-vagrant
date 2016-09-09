@@ -30,7 +30,6 @@
     #virtualbox.enable = true;
   };
   users = {
-    defaultUserShell = "";
     mutableUsers = false;
     extraGroups = [ { name = "vagrant"; } { name = "vboxsf"; } ];
     extraUsers  = [ {
