@@ -1,13 +1,13 @@
 {
   "variables": {
-    "iso_checksum": "dfdc335607ea353b18d4701414c67869a852564e6f9b13b12bf8b04a6e3078f3",
+    "iso_checksum": "09584d0dfac6439c4725949c54705e3ca683fe191f06a4160e929d467d670bea",
     "atlas_token": "{{env `ATLAS_TOKEN`}}"
   },
   "builders": [
     {
       "vm_name": "nixos64",
       "type": "virtualbox-iso",
-      "iso_url": "https://nixos.org/releases/nixos/latest-iso-minimal-x86_64-linux",
+      "iso_url": "https://nixos.org/channels/nixos-16.09/nixos-minimal-16.09.695.45b2a6d-x86_64-linux.iso",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "sha256",
       "guest_os_type": "Linux_64",
