@@ -12,7 +12,7 @@
     loader.grub.device   = "/dev/sda";
   };
 
-  environment.systemPackages = with pkgs; [ git ruby rubygems gnumake gcc ];
+  environment.systemPackages = with pkgs; [ git ruby gnumake gcc ];
   # fileSystems = [ { mountPoint = "/"; label = "nixos"; } ];
   security.sudo.configFile =
     ''
