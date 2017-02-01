@@ -10,6 +10,7 @@
     loader.grub.enable = true;
     loader.grub.version = 2;
     loader.grub.device   = "/dev/sda";
+    supportedFilesystems = ["nfs4"];
   };
 
   environment.systemPackages = with pkgs; [ git ruby gnumake gcc ];
