@@ -13,11 +13,10 @@
       "iso_checksum_type": "sha256",
       "guest_os_type": "Linux_64",
       "boot_command": [
-        "<enter>", "<wait10>","<wait5>",
+        "<enter><wait10><wait10><wait10><wait10>",
         "echo \"- - L *\" > /root/sda.layout", "<enter>",
-        "sfdisk -X gpt /dev/sda < /root/sda.layout", "<enter>",
-        "sfdisk -Y dos /dev/sda < /root/sda.layout", "<enter>",
-        "mkfs.ext4 -L nixos /dev/sda1", "<enter>",
+        "sfdisk /dev/sda < /root/sda.layout", "<enter>",
+        "mkfs.ext4 -L nixos /dev/sda1", "<enter><wait10><wait10>",
         "mount /dev/disk/by-label/nixos /mnt", "<enter>",
         "mkdir -p /mnt/etc/nixos", "<enter>",
         "nixos-generate-config --root /mnt", "<enter>",
@@ -25,7 +24,7 @@
         "nixos-install && ",
         "reboot", "<enter>"
       ],
-      "boot_wait": "5s",
+      "boot_wait": "3s",
       "disk_size": 40000,
       "http_directory": ".",
       "ssh_username": "vagrant",
