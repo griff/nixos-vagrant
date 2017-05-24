@@ -9,7 +9,7 @@
       "vm_name": "nixos64",
       "type": "virtualbox-iso",
       "iso_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/17.03/nixos-{{user `nixos_version`}}/nixos-minimal-{{user `nixos_version`}}-x86_64-linux.iso",
-      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum": "{{user `nixos_checksum`}}",
       "iso_checksum_type": "sha256",
       "guest_os_type": "Linux_64",
       "boot_command": [
