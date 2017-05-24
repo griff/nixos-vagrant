@@ -1,7 +1,7 @@
 {
   "variables": {
     "nixos_version": "17.03.1203.58e227052d",
-    "iso_checksum": "b130b1b804f4f9e3ef71dfa216bc474e6ef289fb8bef8fc861e92e0273ac5e8b",
+    "nixos_checksum": "b130b1b804f4f9e3ef71dfa216bc474e6ef289fb8bef8fc861e92e0273ac5e8b",
     "atlas_token": "{{env `ATLAS_TOKEN`}}"
   },
   "builders": [

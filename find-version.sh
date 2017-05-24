@@ -4,4 +4,4 @@ export NIXOS_CHECKSUM="$(curl -L "https://d3g5gsiof5omrk.cloudfront.net/nixos/17
 echo "Nixos: ${NIXOS_VERSION} ${NIXOS_CHECKSUM}"
 
 sed -i '' -e "s#\"nixos_version\": \".*\",#\"nixos_version\": \"${NIXOS_VERSION}\",#" nixos.json
-sed -i '' -e "s#\"nixos_checksum\": \".*\",#\"iso_checksum\": \"${NIXOS_CHECKSUM}\",#" nixos.json
+sed -i '' -e "s#\"nixos_checksum\": \".*\",#\"nixos_checksum\": \"${NIXOS_CHECKSUM}\",#" nixos.json
