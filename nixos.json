@@ -1,39 +1,114 @@
 {
   "variables": {
-    "nixos_version": "17.03.1203.58e227052d",
-    "nixos_checksum": "b130b1b804f4f9e3ef71dfa216bc474e6ef289fb8bef8fc861e92e0273ac5e8b",
-    "atlas_token": "{{env `ATLAS_TOKEN`}}"
+    "atlas_token": "{{env `ATLAS_TOKEN`}}",
+    "remote_type": "",
+    "disk_type_id": "1",
+    "remote_username": "bro",
+    "remote_password": "{{env `REMOTE_PASSWORD`}}",
+    "build_version": "{{env `CI_PIPELINE_ID`}}"
   },
   "builders": [
     {
-      "vm_name": "nixos64",
       "type": "virtualbox-iso",
-      "iso_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/17.03/nixos-{{user `nixos_version`}}/nixos-minimal-{{user `nixos_version`}}-x86_64-linux.iso",
-      "iso_checksum": "{{user `nixos_checksum`}}",
+      "vm_name": "nixos-{{user `nixos_release`}}-x86_64",
+      "iso_url": "{{user `nixos_url`}}",
+      "iso_checksum_url": "{{user `nixos_checksum_url`}}",
       "iso_checksum_type": "sha256",
       "guest_os_type": "Linux_64",
+      "boot_wait": "5s",
       "boot_command": [
-        "<enter><wait10><wait10><wait10><wait10>",
-        "echo \"- - L *\" > /root/sda.layout", "<enter>",
-        "sfdisk /dev/sda < /root/sda.layout", "<enter>",
-        "mkfs.ext4 -L nixos /dev/sda1", "<enter><wait10><wait10>",
-        "mount /dev/disk/by-label/nixos /mnt", "<enter>",
-        "mkdir -p /mnt/etc/nixos", "<enter>",
-        "nixos-generate-config --root /mnt", "<enter>",
-        "curl -o /mnt/etc/nixos/configuration.nix http://{{ .HTTPIP }}:{{ .HTTPPort }}/configuration.nix && ",
-        "nixos-install && ",
-        "reboot", "<enter>"
+        "<enter><wait10><wait10><wait10><wait10><wait10>",
+        "mkdir -p /root/.ssh", "<enter>",
+        "curl -o /root/.ssh/authorized_keys http://{{ .HTTPIP }}:{{ .HTTPPort }}/id_rsa.pub", "<enter>",
+        "systemctl start sshd.service", "<enter>"
       ],
-      "boot_wait": "3s",
       "disk_size": 40000,
       "http_directory": ".",
-      "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
-      "shutdown_command": "sudo -S shutdown -P now",
+      "ssh_username": "root",
+      "ssh_private_key_file": "id_rsa",
+      "shutdown_command": "rm -f /root/.ssh/authorized_keys && shutdown -P now",
       "vboxmanage": [
         ["modifyvm", "{{.Name}}", "--memory", "1024"],
         ["modifyvm", "{{.Name}}", "--cpus", "1"]
       ]
+    }, {
+      "type": "vmware-iso",
+      "vm_name": "nixos-{{user `nixos_release`}}-x86_64",
+      "boot_wait": "3s",
+      "boot_command": [
+        "<enter><wait10><wait10><wait10><wait10><wait10>",
+        "mkdir -p /root/.ssh", "<enter>",
+        "curl -o /root/.ssh/authorized_keys http://{{ .HTTPIP }}:{{ .HTTPPort }}/id_rsa.pub", "<enter>",
+        "systemctl start sshd.service", "<enter>"
+      ],
+      "disk_size": 40000,
+      "disk_type_id": "{{user `disk_type_id`}}",
+      "guest_os_type": "other3xlinux-64",
+      "version": "11",
+      "http_directory": "{{template_dir}}",
+      "iso_url": "{{user `nixos_url`}}",
+      "iso_checksum_url": "{{user `nixos_checksum_url`}}",
+      "iso_checksum_type": "sha256",
+      "ssh_username": "root",
+      "ssh_private_key_file": "id_rsa",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "10000s",
+      "shutdown_command": "rm -f /root/.ssh/authorized_keys && shutdown -P now",
+      "remote_type": "{{user `remote_type`}}",
+      "remote_host": "192.168.10.253",
+      "remote_username": "{{user `remote_username`}}",
+      "remote_password": "{{user `remote_password`}}",
+      "headless": false,
+      "vmx_data": {
+        "memsize": "1024",
+        "vhv.enable": "TRUE"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "{{template_dir}}/scripts/init.sh"
+      ]
+    },
+    {
+      "type": "shell-local",
+      "command": "tar cf {{template_dir}}/packer_cache/nixos.tar nixos"
+    },
+    {
+      "destination": "/tmp/",
+      "source": "{{template_dir}}/packer_cache/nixos.tar",
+      "type": "file",
+      "generated": true
+    },
+    {
+      "inline": [
+        "cd /mnt/etc && tar xf /tmp/nixos.tar",
+        "rm /tmp/nixos.tar"
+      ],
+      "type": "shell"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "{{template_dir}}/scripts/install.sh",
+        "{{template_dir}}/scripts/show-hwconfig.sh"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": ["reboot"],
+      "expect_disconnect": true
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "{{template_dir}}/scripts/show-hwconfig.sh",
+        "{{template_dir}}/scripts/install-insecure-key.sh",
+        "{{template_dir}}/scripts/wipe-machine-data.sh"
+      ],
+      "pause_before": "20s"
     }
   ],
   "post-processors": [
@@ -41,17 +116,13 @@
     {
       "type": "vagrant",
       "vagrantfile_template": "Vagrantfile.tpl",
-      "output": "{{.Provider}}/nixos64.box"
+      "output": "{{.Provider}}/nixos-{{user `nixos_release`}}-x86_64.box"
     },
     {
-      "type": "atlas",
-      "token": "{{user `atlas_token`}}",
-      "artifact": "griff/nixos64",
-      "artifact_type": "vagrant.box",
-      "metadata": {
-        "provider": "virtualbox",
-        "created_at": "{{timestamp}}"
-      }
+      "type": "vagrant-cloud",
+      "access_token": "{{user `atlas_token`}}",
+      "box_tag": "griff/nixos-{{user `nixos_release`}}-x86_64",
+      "version": "{{user `vagrant_version`}}.{{user `build_version`}}"
     }
     ]
   ]

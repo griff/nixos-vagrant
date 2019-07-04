@@ -1,0 +1,7 @@
+{
+  "nixos_release": "19.03",
+  "nixos_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/19.03/nixos-19.03.173051.b6aaee6d51f/nixos-minimal-19.03.173051.b6aaee6d51f-x86_64-linux.iso",
+  "nixos_checksum_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/19.03/nixos-19.03.173051.b6aaee6d51f/nixos-minimal-19.03.173051.b6aaee6d51f-x86_64-linux.iso.sha256",
+  "nixos_version": "19.03.173051.b6aaee6d51f",
+  "vagrant_version": "1903.173051"
+}
