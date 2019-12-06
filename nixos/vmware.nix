@@ -7,6 +7,13 @@ in {
     vmwareGuest.enable = true;
     vmwareGuest.headless = true;
   };
+  # Fix for OpenSSH problems https://communities.vmware.com/thread/590825
+  services.openssh.extraConfig = ''
+    IPQoS=throughput
+  '';
+  programs.ssh.extraConfig = ''
+    IPQoS=throughput
+  '';
   system.activationScripts.vmwarehacks = if cfg.enable
       then ''
         mkdir -m 0755 -p /usr/bin
