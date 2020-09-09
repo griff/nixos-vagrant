@@ -1,0 +1,31 @@
+name: "Update vars"
+on:
+  schedule:
+    - cron:  '0 12 * * 4'
+  repository_dispatch:
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+    - run: 'echo "Event: ${{ github.event_name }}"'
+    - run: 'echo "Action: ${{ github.event.action }}"'
+    - run: 'cat "${{ github.event_path }}"'
+  update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: webfactory/ssh-agent@v0.4.0
+      with:
+        ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+    - name: Checkout via SSH
+      run: git clone git@github.com:griff/nixos-vagrant.git .
+
+    - run: './ci/update.sh'
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: schedule/update-vars
+        branch-suffix: timestamp
+        commit-message: '[update-vars] automated change'
+        title: Automatic update

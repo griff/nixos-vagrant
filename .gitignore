@@ -2,3 +2,5 @@
 /virtualbox/
 /vmware/
 /.env
+/nixos-build.json
+/deploy_ed25519*

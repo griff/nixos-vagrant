@@ -1,7 +1,7 @@
 {
   "nixos_release": "18.03",
-  "nixos_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/18.03/nixos-18.03.133352.19fc6daa537/nixos-minimal-18.03.133352.19fc6daa537-x86_64-linux.iso",
-  "nixos_checksum_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/18.03/nixos-18.03.133352.19fc6daa537/nixos-minimal-18.03.133352.19fc6daa537-x86_64-linux.iso.sha256",
-  "nixos_version": "18.03.133352.19fc6daa537",
-  "vagrant_version": "1803.133352"
+  "nixos_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/18.03/nixos-18.03.133402.cb0e20d6db9/nixos-minimal-18.03.133402.cb0e20d6db9-x86_64-linux.iso",
+  "nixos_checksum_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/18.03/nixos-18.03.133402.cb0e20d6db9/nixos-minimal-18.03.133402.cb0e20d6db9-x86_64-linux.iso.sha256",
+  "nixos_version": "18.03.133402.cb0e20d6db9",
+  "vagrant_version": "1803.133402"
 }

@@ -1,12 +1,12 @@
 {config, pkgs, ...}:
 let
-  cfg = config.services.vmwareGuest;
+  cfg = config.virtualisation.vmware.guest;
   open-vm-tools = if cfg.headless then pkgs.open-vm-tools-headless else pkgs.open-vm-tools;
 in {
-  services = {
-    vmwareGuest.enable = true;
-    vmwareGuest.headless = true;
-  };
+  # Enable guest additions.
+  virtualisation.vmware.guest.enable = true;
+  virtualisation.vmware.guest.headless = true;
+
   # Fix for OpenSSH problems https://communities.vmware.com/thread/590825
   services.openssh.extraConfig = ''
     IPQoS=throughput
@@ -14,6 +14,8 @@ in {
   programs.ssh.extraConfig = ''
     IPQoS=throughput
   '';
+
+  # Hacks for shared mounts to work from vmrun
   system.activationScripts.vmwarehacks = if cfg.enable
       then ''
         mkdir -m 0755 -p /usr/bin

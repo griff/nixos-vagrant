@@ -1,10 +1,7 @@
 {
   "variables": {
-    "atlas_token": "{{env `ATLAS_TOKEN`}}",
-    "remote_type": "",
+    "cloud_token": "{{env `CLOUD_TOKEN`}}",
     "disk_type_id": "1",
-    "remote_username": "bro",
-    "remote_password": "{{env `REMOTE_PASSWORD`}}",
     "build_version": "{{env `CI_PIPELINE_ID`}}"
   },
   "builders": [
@@ -18,6 +15,7 @@
       "boot_wait": "5s",
       "boot_command": [
         "<enter><wait10><wait10><wait10><wait10><wait10>",
+        "sudo -s", "<enter>",
         "mkdir -p /root/.ssh", "<enter>",
         "curl -o /root/.ssh/authorized_keys http://{{ .HTTPIP }}:{{ .HTTPPort }}/id_rsa.pub", "<enter>",
         "systemctl start sshd.service", "<enter>"
@@ -37,6 +35,7 @@
       "boot_wait": "3s",
       "boot_command": [
         "<enter><wait10><wait10><wait10><wait10><wait10>",
+        "sudo -s", "<enter>",
         "mkdir -p /root/.ssh", "<enter>",
         "curl -o /root/.ssh/authorized_keys http://{{ .HTTPIP }}:{{ .HTTPPort }}/id_rsa.pub", "<enter>",
         "systemctl start sshd.service", "<enter>"
@@ -54,10 +53,6 @@
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
       "shutdown_command": "rm -f /root/.ssh/authorized_keys && shutdown -P now",
-      "remote_type": "{{user `remote_type`}}",
-      "remote_host": "192.168.10.253",
-      "remote_username": "{{user `remote_username`}}",
-      "remote_password": "{{user `remote_password`}}",
       "headless": false,
       "vmx_data": {
         "memsize": "1024",
@@ -120,7 +115,7 @@
     },
     {
       "type": "vagrant-cloud",
-      "access_token": "{{user `atlas_token`}}",
+      "access_token": "{{user `cloud_token`}}",
       "box_tag": "griff/nixos-{{user `nixos_release`}}-x86_64",
       "version": "{{user `vagrant_version`}}.{{user `build_version`}}"
     }

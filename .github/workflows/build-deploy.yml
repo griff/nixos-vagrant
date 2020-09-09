@@ -1,0 +1,17 @@
+name: "Build and deploy"
+on:
+  push:
+  pull_request:
+jobs:
+  ci:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build Release
+      if: "github.ref == 'refs/heads/master'"
+      env:
+        CLOUD_TOKEN: ${{ secrets.CLOUD_TOKEN }}
+      run: ./ci/build.sh
+    - name: Build
+      if: "github.ref != 'refs/heads/master'"
+      run: ./ci/build.sh

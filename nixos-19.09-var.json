@@ -1,5 +1,5 @@
 {
-  "nixos_release": "stable",
+  "nixos_release": "19.09",
   "nixos_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/19.09/nixos-19.09.1505.a7aa5dbb194/nixos-minimal-19.09.1505.a7aa5dbb194-x86_64-linux.iso",
   "nixos_checksum_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/19.09/nixos-19.09.1505.a7aa5dbb194/nixos-minimal-19.09.1505.a7aa5dbb194-x86_64-linux.iso.sha256",
   "nixos_version": "19.09.1505.a7aa5dbb194",
