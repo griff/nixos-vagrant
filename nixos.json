@@ -13,7 +13,7 @@
       "guest_os_type": "Linux_64",
       "boot_wait": "5s",
       "boot_command": [
-        "<enter><wait10><wait10><wait10><wait10><wait10>",
+        "<wait10><enter><wait10><wait10><wait10><wait10><wait10><wait10>",
         "sudo -s", "<enter>",
         "mkdir -p /root/.ssh", "<enter>",
         "curl -o /root/.ssh/authorized_keys http://{{ .HTTPIP }}:{{ .HTTPPort }}/id_rsa.pub", "<enter>",
@@ -33,7 +33,7 @@
       "vm_name": "nixos-{{user `nixos_release`}}-x86_64",
       "boot_wait": "3s",
       "boot_command": [
-        "<enter><wait10><wait10><wait10><wait10><wait10>",
+        "<wait10><enter><wait10><wait10><wait10><wait10><wait10><wait10>",
         "sudo -s", "<enter>",
         "mkdir -p /root/.ssh", "<enter>",
         "curl -o /root/.ssh/authorized_keys http://{{ .HTTPIP }}:{{ .HTTPPort }}/id_rsa.pub", "<enter>",
