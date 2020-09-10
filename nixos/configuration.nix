@@ -29,25 +29,22 @@
   #    %wheel ALL=(ALL) NOPASSWD: ALL, SETENV: ALL
   #  '';
   services = {
-    #dbus.enable       = true;
     openssh.enable    = true;
-    #virtualbox.enable = true;
   };
   users = {
     mutableUsers = false;
-    extraGroups = [ { name = "vagrant"; } { name = "vboxsf"; } ];
-    extraUsers  = [ {
+    groups.vagrant = {};
+    users.vagrant = {
       description     = "Vagrant User";
-      name            = "vagrant";
       group           = "vagrant";
-      extraGroups     = [ "users" "vboxsf" "wheel" ];
+      extraGroups     = [ "users" "wheel" ];
       password        = "vagrant";
       home            = "/home/vagrant";
       createHome      = true;
       useDefaultShell = true;
-    } ];
+    };
   };
 
   # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "18.03";
+  system.stateVersion = "19.09";
 }

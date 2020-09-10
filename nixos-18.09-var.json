@@ -1,7 +1,0 @@
-{
-  "nixos_release": "18.09",
-  "nixos_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/18.09/nixos-18.09.2574.a7e559a5504/nixos-minimal-18.09.2574.a7e559a5504-x86_64-linux.iso",
-  "nixos_checksum_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/18.09/nixos-18.09.2574.a7e559a5504/nixos-minimal-18.09.2574.a7e559a5504-x86_64-linux.iso.sha256",
-  "nixos_version": "18.09.2574.a7e559a5504",
-  "vagrant_version": "1809.2574"
-}
