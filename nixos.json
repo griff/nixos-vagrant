@@ -2,7 +2,7 @@
   "variables": {
     "cloud_token": "{{env `CLOUD_TOKEN`}}",
     "disk_type_id": "1",
-    "build_version": "{{env `CI_PIPELINE_ID`}}"
+    "build_version": "{{env `GITHUB_RUN_ID`}}"
   },
   "builders": [
     {
