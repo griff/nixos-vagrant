@@ -19,5 +19,6 @@ fi
 export PACKER_KEY_INTERVAL=10ms
 packer build \
     $extra_args \
+    --only=virtualbox-iso \
     -var-file=nixos-$VERSION-var.json \
     "$FILE"
