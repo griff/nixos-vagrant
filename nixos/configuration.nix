@@ -5,6 +5,7 @@
       ./hardware-configuration.nix
       ./provider.nix
       ./vagrant.nix
+      ./custom.nix
     ];
   # require = [ <nixos/nixos/modules/installer/scan/not-detected.nix> ];
   boot = {
