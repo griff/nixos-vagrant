@@ -32,6 +32,7 @@
   services = {
     openssh.enable    = true;
   };
+  nix.trustedUsers = [ "root" "@wheel" ];
   users = {
     mutableUsers = false;
     groups.vagrant = {};
