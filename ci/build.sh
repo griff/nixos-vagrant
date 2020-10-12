@@ -31,6 +31,8 @@ if [ -z "$1" ]; then
 else
   export VERSION="$1"
 fi
+echo "nixos-$VERSION-var.json" 
+cat nixos-$VERSION-var.json
 export PACKER_KEY_INTERVAL=10ms
 packer build \
     $extra_args \
