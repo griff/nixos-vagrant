@@ -29,7 +29,7 @@ write_vars() {
 if [ "$1" == "write" ] && [ -n "$2" ]; then
   actual="$2"
   if [ "$2" == "stable" ]; then
-    actual="$(curl -L https://nixos.org/download.html | sed -n -E 's/.*<strong>([0-9]+)\.([0-9]+)<.*/\1.\2/p')"
+    actual="$(curl -L https://nixos.org/download.html | sed -n -E 's/.*<a href="#">([0-9]+)\.([0-9]+)<.*/\1.\2/p')"
   fi
   write_vars "$actual" "$2"
 fi
