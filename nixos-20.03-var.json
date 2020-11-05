@@ -1,8 +1,8 @@
 {
   "nixos_release": "20.03",
-  "nixos_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/20.03/nixos-20.03.3191.504f993df9a/nixos-minimal-20.03.3191.504f993df9a-x86_64-linux.iso",
-  "nixos_checksum_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/20.03/nixos-20.03.3191.504f993df9a/nixos-minimal-20.03.3191.504f993df9a-x86_64-linux.iso.sha256",
-  "nixos_checksum": "0bae9e00924e089332d61bf712ffff9be0a5140318171feae1a287f40a4e5c2e",
-  "nixos_version": "20.03.3191.504f993df9a",
-  "vagrant_version": "2003.3191"
+  "nixos_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/20.03/nixos-20.03.3211.d2f46002829/nixos-minimal-20.03.3211.d2f46002829-x86_64-linux.iso",
+  "nixos_checksum_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/20.03/nixos-20.03.3211.d2f46002829/nixos-minimal-20.03.3211.d2f46002829-x86_64-linux.iso.sha256",
+  "nixos_checksum": "0abb577fd4b2c29933f10f124fdf3bbb1bd9ddb3f86d629d1038f3c21f550371",
+  "nixos_version": "20.03.3211.d2f46002829",
+  "vagrant_version": "2003.3211"
 }
