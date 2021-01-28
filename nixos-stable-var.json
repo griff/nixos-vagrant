@@ -1,8 +1,8 @@
 {
   "nixos_release": "stable",
-  "nixos_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/20.09/nixos-20.09.2577.808b5dd5cbb/nixos-minimal-20.09.2577.808b5dd5cbb-x86_64-linux.iso",
-  "nixos_checksum_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/20.09/nixos-20.09.2577.808b5dd5cbb/nixos-minimal-20.09.2577.808b5dd5cbb-x86_64-linux.iso.sha256",
-  "nixos_checksum": "3bae037dbadd532632c49d94fdb025a9affc57c3a27436280869c0507399d9e3",
-  "nixos_version": "20.09.2577.808b5dd5cbb",
-  "vagrant_version": "2009.2577"
+  "nixos_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/20.09/nixos-20.09.2750.85abeab48b5/nixos-minimal-20.09.2750.85abeab48b5-x86_64-linux.iso",
+  "nixos_checksum_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/20.09/nixos-20.09.2750.85abeab48b5/nixos-minimal-20.09.2750.85abeab48b5-x86_64-linux.iso.sha256",
+  "nixos_checksum": "0ca3a69f233868316e033fea75f0a79fb5850189a094141d9cbe56b8f2d819fa",
+  "nixos_version": "20.09.2750.85abeab48b5",
+  "vagrant_version": "2009.2750"
 }
