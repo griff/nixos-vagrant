@@ -1,0 +1,8 @@
+{
+  "nixos_release": "21.05",
+  "nixos_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/21.05/nixos-21.05.650.eaba7870ffc/nixos-minimal-21.05.650.eaba7870ffc-x86_64-linux.iso",
+  "nixos_checksum_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/21.05/nixos-21.05.650.eaba7870ffc/nixos-minimal-21.05.650.eaba7870ffc-x86_64-linux.iso.sha256",
+  "nixos_checksum": "1dba767e7a608587a4b5678d1421756fb95cbb0e90e3c79427951fe116c94914",
+  "nixos_version": "21.05.650.eaba7870ffc",
+  "vagrant_version": "2105.650"
+}
