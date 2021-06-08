@@ -42,6 +42,7 @@
       extraGroups     = [ "users" "wheel" ];
       password        = "vagrant";
       home            = "/home/vagrant";
+      isNormalUser    = true;
       createHome      = true;
       useDefaultShell = true;
     };

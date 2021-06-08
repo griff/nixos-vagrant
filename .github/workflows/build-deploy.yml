@@ -39,7 +39,7 @@ jobs:
     - name: Build
       if: "github.ref != 'refs/heads/master'"
       run: "./ci/build.sh 20.03"
-  nixos_19_09:
+  nixos_21_05:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
@@ -47,7 +47,7 @@ jobs:
       if: "github.ref == 'refs/heads/master'"
       env:
         CLOUD_TOKEN: ${{ secrets.CLOUD_TOKEN }}
-      run: "./ci/build.sh 19.09"
+      run: "./ci/build.sh 21.05"
     - name: Build
       if: "github.ref != 'refs/heads/master'"
-      run: "./ci/build.sh 19.09"
+      run: "./ci/build.sh 21.05"
