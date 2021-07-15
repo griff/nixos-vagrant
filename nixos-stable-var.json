@@ -1,8 +1,8 @@
 {
   "nixos_release": "stable",
-  "nixos_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/21.05/nixos-21.05.1353.c06613c25df/nixos-minimal-21.05.1353.c06613c25df-x86_64-linux.iso",
-  "nixos_checksum_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/21.05/nixos-21.05.1353.c06613c25df/nixos-minimal-21.05.1353.c06613c25df-x86_64-linux.iso.sha256",
-  "nixos_checksum": "0c5c2a329110495e23f875ffe4042f4d5cc9f0dc912685860b758fdc119b234f",
-  "nixos_version": "21.05.1353.c06613c25df",
-  "vagrant_version": "2105.1353"
+  "nixos_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/21.05/nixos-21.05.1493.1f4e50f03c5/nixos-minimal-21.05.1493.1f4e50f03c5-x86_64-linux.iso",
+  "nixos_checksum_url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/21.05/nixos-21.05.1493.1f4e50f03c5/nixos-minimal-21.05.1493.1f4e50f03c5-x86_64-linux.iso.sha256",
+  "nixos_checksum": "e6552343a04c4c0c22018512c66daf24389e5621ceae20b8ce921e3c4c0588d5",
+  "nixos_version": "21.05.1493.1f4e50f03c5",
+  "vagrant_version": "2105.1493"
 }
