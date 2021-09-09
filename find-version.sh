@@ -1,8 +1,8 @@
 
 version() {
   local major="$1"
-  export NIXOS_VERSION="${major}.$(curl -L https://nixos.org/channels/nixos-${major} | sed  -n -E "s/.*-x86_64-linux.iso'>nixos-minimal-${major}.([^<]+)-x86_64-linux.iso<.a>.*/\1/p")"
-  export NIXOS_URL="https://d3g5gsiof5omrk.cloudfront.net/nixos/${major}/nixos-${NIXOS_VERSION}/nixos-minimal-${NIXOS_VERSION}-x86_64-linux.iso"
+  export NIXOS_VERSION="${major}.$(curl -L https://channels.nixos.org/nixos-${major} | sed  -n -E "s/.*-x86_64-linux.iso'>nixos-minimal-${major}.([^<]+)-x86_64-linux.iso<.a>.*/\1/p")"
+  export NIXOS_URL="https://releases.nixos.org/nixos/${major}/nixos-${NIXOS_VERSION}/nixos-minimal-${NIXOS_VERSION}-x86_64-linux.iso"
   export NIXOS_CHECKSUM_URL="${NIXOS_URL}.sha256"
   export NIXOS_CHECKSUM="$(curl "$NIXOS_CHECKSUM_URL" | sed -nE 's/^([^ ]+).*/\1/p')"
   export VAGRANT_VERSION="$(echo $NIXOS_VERSION | sed -n -E 's/^([0-9]+)\.([0-9]+)\.([0-9]+).*$/\1\2.\3/p')"
