@@ -1,7 +1,7 @@
 name: "Update vars"
 on:
   schedule:
-    - cron:  '0 12 * * 4'
+    - cron:  '0 12 1 * *'
   repository_dispatch:
 jobs:
   debug:

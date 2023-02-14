@@ -1,0 +1,8 @@
+{
+  "nixos_release": "21.11",
+  "nixos_url": "https://releases.nixos.org/nixos/21.11/nixos-21.11.337975.eabc3821918/nixos-minimal-21.11.337975.eabc3821918-x86_64-linux.iso",
+  "nixos_checksum_url": "https://releases.nixos.org/nixos/21.11/nixos-21.11.337975.eabc3821918/nixos-minimal-21.11.337975.eabc3821918-x86_64-linux.iso.sha256",
+  "nixos_checksum": "dbd70f2ff2196732ad9ea6d69be4a096a6900502125475386688a8944a3ea613",
+  "nixos_version": "21.11.337975.eabc3821918",
+  "vagrant_version": "2111.337975"
+}

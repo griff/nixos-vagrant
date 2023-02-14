@@ -1,8 +1,8 @@
 {
   "nixos_release": "21.05",
-  "nixos_url": "https://releases.nixos.org/nixos/21.05/nixos-21.05.2987.fd6dba47199/nixos-minimal-21.05.2987.fd6dba47199-x86_64-linux.iso",
-  "nixos_checksum_url": "https://releases.nixos.org/nixos/21.05/nixos-21.05.2987.fd6dba47199/nixos-minimal-21.05.2987.fd6dba47199-x86_64-linux.iso.sha256",
-  "nixos_checksum": "df621e1b24dd890c46b98b27e5f72f15d1c59b31d7ecc416218be4522f832857",
-  "nixos_version": "21.05.2987.fd6dba47199",
-  "vagrant_version": "2105.2987"
+  "nixos_url": "https://releases.nixos.org/nixos/21.05/nixos-21.05.4737.022caabb5f2/nixos-minimal-21.05.4737.022caabb5f2-x86_64-linux.iso",
+  "nixos_checksum_url": "https://releases.nixos.org/nixos/21.05/nixos-21.05.4737.022caabb5f2/nixos-minimal-21.05.4737.022caabb5f2-x86_64-linux.iso.sha256",
+  "nixos_checksum": "3476f0fc4f8403809688c202faf09d7a85e78f01dd00353c9095dfd13fc5b936",
+  "nixos_version": "21.05.4737.022caabb5f2",
+  "vagrant_version": "2105.4737"
 }

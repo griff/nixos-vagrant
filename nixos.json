@@ -11,18 +11,17 @@
       "iso_url": "{{user `nixos_url`}}",
       "iso_checksum": "sha256:{{user `nixos_checksum`}}",
       "guest_os_type": "Linux_64",
-      "boot_wait": "5s",
+      "boot_wait": "70s",
       "boot_command": [
-        "<wait10><enter><wait10><wait10><wait10><wait10><wait10><wait10>",
         "sudo -s", "<enter>",
         "mkdir -p /root/.ssh", "<enter>",
-        "curl -o /root/.ssh/authorized_keys http://{{ .HTTPIP }}:{{ .HTTPPort }}/id_rsa.pub", "<enter>",
+        "curl --retry-connrefused --retry 10 -o /root/.ssh/authorized_keys http://{{ .HTTPIP }}:{{ .HTTPPort }}/id_ed25519.pub", "<enter>",
         "systemctl start sshd.service", "<enter>"
       ],
       "disk_size": 40000,
       "http_directory": ".",
       "ssh_username": "root",
-      "ssh_private_key_file": "id_rsa",
+      "ssh_private_key_file": "id_ed25519",
       "shutdown_command": "rm -f /root/.ssh/authorized_keys && shutdown -P now",
       "vboxmanage": [
         ["modifyvm", "{{.Name}}", "--memory", "1024"],
@@ -31,12 +30,11 @@
     }, {
       "type": "vmware-iso",
       "vm_name": "nixos-{{user `nixos_release`}}-x86_64",
-      "boot_wait": "3s",
+      "boot_wait": "70s",
       "boot_command": [
-        "<wait10><enter><wait10><wait10><wait10><wait10><wait10><wait10>",
         "sudo -s", "<enter>",
         "mkdir -p /root/.ssh", "<enter>",
-        "curl -o /root/.ssh/authorized_keys http://{{ .HTTPIP }}:{{ .HTTPPort }}/id_rsa.pub", "<enter>",
+        "curl --retry-connrefused --retry 10 -o /root/.ssh/authorized_keys http://{{ .HTTPIP }}:{{ .HTTPPort }}/id_ed25519.pub", "<enter>",
         "systemctl start sshd.service", "<enter>"
       ],
       "disk_size": 40000,
@@ -47,7 +45,7 @@
       "iso_url": "{{user `nixos_url`}}",
       "iso_checksum": "sha256:{{user `nixos_checksum`}}",
       "ssh_username": "root",
-      "ssh_private_key_file": "id_rsa",
+      "ssh_private_key_file": "id_ed25519",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
       "shutdown_command": "rm -f /root/.ssh/authorized_keys && shutdown -P now",

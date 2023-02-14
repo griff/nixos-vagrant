@@ -4,3 +4,5 @@
 /.env
 /nixos-build.json
 /deploy_ed25519*
+/output-virtualbox-iso/
+/output-vmware-iso/

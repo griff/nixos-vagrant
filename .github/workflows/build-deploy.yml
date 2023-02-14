@@ -15,7 +15,7 @@ jobs:
     - name: Build
       if: "github.ref != 'refs/heads/master'"
       run: "./ci/build.sh stable"
-  nixos_20_09:
+  nixos_22_11:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
@@ -23,11 +23,11 @@ jobs:
       if: "github.ref == 'refs/heads/master'"
       env:
         CLOUD_TOKEN: ${{ secrets.CLOUD_TOKEN }}
-      run: "./ci/build.sh 20.09"
+      run: "./ci/build.sh 22.11"
     - name: Build
       if: "github.ref != 'refs/heads/master'"
-      run: "./ci/build.sh 20.09"
-  nixos_20_03:
+      run: "./ci/build.sh 22.11"
+  nixos_22_05:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
@@ -35,11 +35,11 @@ jobs:
       if: "github.ref == 'refs/heads/master'"
       env:
         CLOUD_TOKEN: ${{ secrets.CLOUD_TOKEN }}
-      run: "./ci/build.sh 20.03"
+      run: "./ci/build.sh 22.05"
     - name: Build
       if: "github.ref != 'refs/heads/master'"
-      run: "./ci/build.sh 20.03"
-  nixos_21_05:
+      run: "./ci/build.sh 22.05"
+  nixos_21_11:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
@@ -47,7 +47,7 @@ jobs:
       if: "github.ref == 'refs/heads/master'"
       env:
         CLOUD_TOKEN: ${{ secrets.CLOUD_TOKEN }}
-      run: "./ci/build.sh 21.05"
+      run: "./ci/build.sh 21.11"
     - name: Build
       if: "github.ref != 'refs/heads/master'"
-      run: "./ci/build.sh 21.05"
+      run: "./ci/build.sh 21.11"

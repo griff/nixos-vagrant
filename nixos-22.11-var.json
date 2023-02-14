@@ -1,5 +1,5 @@
 {
-  "nixos_release": "stable",
+  "nixos_release": "22.11",
   "nixos_url": "https://releases.nixos.org/nixos/22.11/nixos-22.11.2555.a45a8916243/nixos-minimal-22.11.2555.a45a8916243-x86_64-linux.iso",
   "nixos_checksum_url": "https://releases.nixos.org/nixos/22.11/nixos-22.11.2555.a45a8916243/nixos-minimal-22.11.2555.a45a8916243-x86_64-linux.iso.sha256",
   "nixos_checksum": "fca2919707c4099ad4b8a47f5621562bcb64662ec4ca9ef356c907c6355ebca2",
