@@ -1,8 +1,8 @@
 {
   "nixos_release": "stable",
-  "nixos_url": "https://releases.nixos.org/nixos/22.11/nixos-22.11.2804.b26d52c9feb/nixos-minimal-22.11.2804.b26d52c9feb-x86_64-linux.iso",
-  "nixos_checksum_url": "https://releases.nixos.org/nixos/22.11/nixos-22.11.2804.b26d52c9feb/nixos-minimal-22.11.2804.b26d52c9feb-x86_64-linux.iso.sha256",
-  "nixos_checksum": "bf1c6610f7ae3efb0f0acb2906d62a6b0852acd5adc636ce076f0fd20850812e",
-  "nixos_version": "22.11.2804.b26d52c9feb",
-  "vagrant_version": "2211.2804"
+  "nixos_url": "https://releases.nixos.org/nixos/23.11/nixos-23.11.928.50aa30a13c4a/nixos-minimal-23.11.928.50aa30a13c4a-x86_64-linux.iso",
+  "nixos_checksum_url": "https://releases.nixos.org/nixos/23.11/nixos-23.11.928.50aa30a13c4a/nixos-minimal-23.11.928.50aa30a13c4a-x86_64-linux.iso.sha256",
+  "nixos_checksum": "e6a3d7ccfc141c2c4e41bc8ffc98e444c907e6621b599b11704743da70e1604d",
+  "nixos_version": "23.11.928.50aa30a13c4a",
+  "vagrant_version": "2311.928"
 }
